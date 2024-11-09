@@ -14,6 +14,7 @@ pip install vsag
 python -m venv .env
 source .env/bin/activate
 pip install maturin
+pip install maturin[patchelf]
 ```
 
 Useful maturin commands:
