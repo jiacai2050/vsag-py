@@ -23,8 +23,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # BUILD_CONTAINER: quay.io/pypa/manylinux_2_28_x86_64
-  BUILD_CONTAINER: off
+  BUILD_CONTAINER: quay.io/pypa/manylinux_2_28_x86_64
 
 jobs:
   linux:
@@ -49,12 +48,12 @@ jobs:
           args: --release --out dist --find-interpreter
           manylinux: auto
           container: ${{ env.BUILD_CONTAINER }}
-          # before-script-linux: |
-          #   yum install -y gcc-gfortran libomp-devel libomp ca-certificates
-          #   yum install -y yum-utils
-          #   yum-config-manager --add-repo https://yum.repos.intel.com/mkl/setup/intel-mkl.repo
-          #   rpm --import https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
-          #   yum install -y intel-mkl-64bit-2020.0-088
+          before-script-linux: |
+            yum install -y gcc-gfortran libomp-devel libomp ca-certificates
+            yum install -y yum-utils
+            yum-config-manager --add-repo https://yum.repos.intel.com/mkl/setup/intel-mkl.repo
+            rpm --import https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
+            yum install -y intel-mkl-64bit-2020.0-088
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
