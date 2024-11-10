@@ -6,4 +6,4 @@ deps:
 
 .PHONY: dev
 dev:
-	maturin develop
+	maturin develop --no-default-features

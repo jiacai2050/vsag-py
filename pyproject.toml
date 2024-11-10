@@ -21,9 +21,9 @@ classifiers = [
 dynamic = ["version"]
 
 [project.urls]
-Documentation = "https://github.com/alipay/vsag"
-Homepage = "https://github.com/alipay/vsag"
-Repository = "https://github.com/alipay/vsag"
+Documentation = "https://github.com/jiacai2050/vsag-py"
+Homepage = "https://github.com/jiacai2050/vsag-py"
+Repository = "https://github.com/jiacai2050/vsag-py"
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
