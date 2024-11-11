@@ -8,7 +8,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = "0.22.0"
-vsag = { version = 0.1, default-features = false }
+vsag = { version = "0.1", default-features = false }
 
 [features]
 default = ["vendored", "enable-cxx11-abi"]
