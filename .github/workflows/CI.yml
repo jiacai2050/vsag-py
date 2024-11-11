@@ -23,8 +23,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # BUILD_CONTAINER: quay.io/pypa/manylinux_2_28_x86_64
-  BUILD_CONTAINER: off
+  BUILD_CONTAINER: quay.io/pypa/manylinux_2_28_x86_64
 
 jobs:
   linux:
@@ -32,21 +31,13 @@ jobs:
     strategy:
       matrix:
         platform:
-          - runner: ubuntu-20.04
+          - runner: ubuntu-latest
             target: x86_64
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: |
-            3.8
-            3.9
-            3.10
-            3.11
-            3.12
-      - name: Install deps
-        run: |
-          sudo apt install -y gfortran python3-dev libomp-dev lcov intel-mkl
+          python-version: 3.x
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
@@ -54,12 +45,12 @@ jobs:
           args: --release --out dist --find-interpreter
           manylinux: auto
           container: ${{ env.BUILD_CONTAINER }}
-          # before-script-linux: |
-          #   yum install -y gcc-gfortran libomp-devel libomp ca-certificates
-          #   yum install -y yum-utils
-          #   yum-config-manager --add-repo https://yum.repos.intel.com/mkl/setup/intel-mkl.repo
-          #   rpm --import https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
-          #   yum install -y intel-mkl-64bit-2020.0-088
+          before-script-linux: |
+            yum install -y gcc-gfortran libomp-devel libomp ca-certificates
+            yum install -y yum-utils
+            yum-config-manager --add-repo https://yum.repos.intel.com/mkl/setup/intel-mkl.repo
+            rpm --import https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB
+            yum install -y intel-mkl-64bit-2020.0-088
       - name: Run python example
         run: |
           pip install dist/vsag-*-cp312*.whl

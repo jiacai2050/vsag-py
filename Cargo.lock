@@ -410,7 +410,7 @@ dependencies = [
 [[package]]
 name = "vsag-sys"
 version = "0.1.0"
-source = "git+https://github.com/jiacai2050/vsag-sys.git?branch=main#5fea911df4a2fb2db3531776913bcbabc3209da7"
+source = "git+https://github.com/jiacai2050/vsag-sys.git?branch=main#a1741ef83b8f37299333f68be39d4392dc73a154"
 dependencies = [
  "bindgen",
  "cmake",
