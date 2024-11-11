@@ -63,7 +63,10 @@ jobs:
       - name: Find libs
         if: always()
         run: |
-          find . -name libvsag.so
+          for f in `find . -name libvsag.so`;do
+            echo "$f ..."
+            ldd "$f"
+          done
       - name: Run python example
         run: |
           pip install dist/vsag-*-cp312*.whl
