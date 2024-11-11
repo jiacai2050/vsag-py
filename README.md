@@ -11,6 +11,20 @@
 pip install vsag
 ```
 
+Built wheels are expected to be compatible with distros using glibc 2.28 or later, [including](https://github.com/pypa/manylinux?tab=readme-ov-file#manylinux_2_28-almalinux-8-based):
+
+- Debian 10+
+- Ubuntu 18.10+
+- Fedora 29+
+- CentOS/RHEL 8+
+
+> [!IMPORTANT]
+> Currently we're only testing VSAG on x86-64 Linux.
+
+## Examples
+
+See [hnsw.py](examples/hnsw.py)
+
 ## Development
 
 ```
