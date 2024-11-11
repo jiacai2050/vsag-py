@@ -3,7 +3,7 @@
 
 use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
-use vsag_sys as sys;
+use vsag as sys;
 
 #[pyclass]
 struct Index {
