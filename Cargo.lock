@@ -401,7 +401,7 @@ checksum = "c7de7d73e1754487cb58364ee906a499937a0dfabd86bcb980fa99ec8c8fa2ce"
 
 [[package]]
 name = "vsag-py"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "pyo3",
  "vsag-sys",
@@ -410,7 +410,7 @@ dependencies = [
 [[package]]
 name = "vsag-sys"
 version = "0.1.0"
-source = "git+https://github.com/jiacai2050/vsag-sys.git?branch=main#a1741ef83b8f37299333f68be39d4392dc73a154"
+source = "git+https://github.com/jiacai2050/vsag-sys.git?branch=main#7cecd7c82b72600197d80c4732369c25e5c0976d"
 dependencies = [
  "bindgen",
  "cmake",
