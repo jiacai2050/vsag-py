@@ -49,9 +49,9 @@ impl Index {
     }
 }
 
-/// VSAG Python module implemented in Rust.
-#[pymodule]
-fn vsag(m: &Bound<'_, PyModule>) -> PyResult<()> {
+/// VSAG Python module, a vector indexing library used for similarity search.
+#[pymodule(name = "vsag")]
+fn vsag_py(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<Index>()?;
     Ok(())
 }
