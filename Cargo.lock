@@ -189,9 +189,9 @@ checksum = "c7de7d73e1754487cb58364ee906a499937a0dfabd86bcb980fa99ec8c8fa2ce"
 
 [[package]]
 name = "vsag"
-version = "0.1.0"
+version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dcb0d72c70f2f7879fac293071563f02b2e1e177d9b5a8d86a982e855e6b7675"
+checksum = "afbad03fd4047398c04ab08e6d0f08e4621f8c31bc86ddfee229aa7ecdf2efa8"
 dependencies = [
  "cmake",
 ]
