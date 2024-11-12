@@ -8,9 +8,11 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = "0.22.0"
-vsag-sys = { git = "https://github.com/jiacai2050/vsag-sys.git", branch = "main" }
+vsag = { version = "0.1", default-features = false }
 
 [features]
-default = ["vendored", "no-intel-mkl"]
-vendored = ["vsag-sys/vendored"]
-no-intel-mkl = ["vsag-sys/no-intel-mkl"]
+default = ["vendored", "enable-cxx11-abi"]
+vendored = ["vsag/vendored"]
+enable-intel-mkl = ["vsag/enable-intel-mkl"]
+enable-libcxx = ["vsag/enable-libcxx"]
+enable-cxx11-abi = ["vsag/enable-cxx11-abi"]

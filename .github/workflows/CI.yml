@@ -38,11 +38,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+      - name: Set env(release)
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        run: |
+          echo BUILD_ARGS="--release" >> $GITHUB_ENV
+      - name: Set env(debug)
+        if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
+        run: |
+          echo BUILD_ARGS="" >> $GITHUB_ENV
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
           # target: ${{ matrix.platform.target }}
-          args: --release --out dist --find-interpreter
+          args: ${{ env.BUILD_ARGS }} --out dist --find-interpreter
           manylinux: auto
           container: ${{ env.BUILD_CONTAINER }}
           before-script-linux: |
